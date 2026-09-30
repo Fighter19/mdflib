@@ -57,7 +57,7 @@ include(${CMAKE_SOURCE_DIR}/script/wxwidgets.cmake)
 include(${CMAKE_SOURCE_DIR}/script/wxmathplot.cmake)
 
 target_link_libraries(mdfview PRIVATE
-    Boost::process
+    Boost::headers
     Boost::filesystem
     Boost::locale
     wxWidgets::wxWidgets
