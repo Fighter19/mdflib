@@ -60,7 +60,7 @@ wxEND_EVENT_TABLE()
 
 bool MdfViewer::OnInit() {
 
-  SetAppearance(Appearance::System);
+  // SetAppearance(Appearance::System);
 
   if (!wxApp::OnInit()) {
     return false;
