@@ -471,7 +471,7 @@ void ChildFrame::RedrawDataList(const DataListBlock& dg, const wxTreeItemId& roo
     } else if (data->BlockType() == "HL") {
       if (const auto* hl4 = dynamic_cast<const Hl4Block*>(data.get());
           hl4 != nullptr) {
-        block_string << " (" << wxString(hl4->TypeAsString()) << ")";
+        block_string << " (" << wxString(std::string(hl4->TypeAsString())) << ")";
         auto hl_root = left_->AppendItem(root,
                      block_string.str(),
                         TREE_HL, TREE_HL,
