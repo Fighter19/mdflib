@@ -92,7 +92,7 @@ bool MdfViewer::OnInit() {
 
   // Find the path to the 'gnuplot.exe'
   try {
-    auto gp = boost::process::environment::find_executable("gnuplot");
+    auto gp = boost::process::search_path("gnuplot");
     gnuplot_ = gp.string();
     LOG_INFO() << "GnuPlot found. Path: " << gnuplot_;
   } catch(const std::exception& ) {
@@ -194,7 +194,7 @@ void MdfViewer::OnUpdateGnuPlotDownloadPage(wxUpdateUIEvent &event) {
 void MdfViewer::OpenFile(const std::string& filename) {
   if (!notepad_.empty()) {
      std::vector<std::string> args = { filename };
-     boost::process::process proc(ctx_, notepad_, args);
+     boost::process::child proc(ctx_, notepad_, args);
      proc.detach();
   }
 }

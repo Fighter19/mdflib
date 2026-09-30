@@ -78,7 +78,7 @@ std::string FindNotepad() {
   std::string note;
   // 1. Find the path to the 'notepad++.exe'
   try {
-    auto notepad = boost::process::environment::find_executable("notepad++");
+    auto notepad = boost::process::search_path("notepad++");
     if (!notepad.string().empty()) {
       note = notepad.string();
     }
@@ -92,7 +92,7 @@ std::string FindNotepad() {
 
   // 2. Find the path to the 'notepad.exe'
   try {
-    auto notepad = boost::process::environment::find_executable("notepad");
+    auto notepad = boost::process::search_path("notepad");
     if (!notepad.string().empty()) {
       note = notepad.string();
     }
@@ -106,7 +106,7 @@ std::string FindNotepad() {
 
   // 3. Find the path to the 'gedit' GNOME editor
   try {
-    auto notepad = boost::process::environment::find_executable("gedit");
+    auto notepad = boost::process::search_path("gedit");
     if (!notepad.string().empty()) {
       note = notepad.string();
     }

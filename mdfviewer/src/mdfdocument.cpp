@@ -681,7 +681,7 @@ void MdfDocument::OnPlotChannelData(wxCommandEvent &) {
   }
 
   std::vector<std::string> args {"--persist", gp_file};
-  boost::process::process proc(app.ctx_, app.GnuPlot(), args);
+  boost::process::child proc(app.ctx_, app.GnuPlot(), args);
   proc.detach();
 }
 
